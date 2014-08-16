@@ -90,8 +90,6 @@ function customizer_library_remove_theme_mods() {
 	$customizer_library = Customizer_Library::Instance();
 	$options = $customizer_library->get_options();
 
-	var_dump( $options );
-
 	if ( $options ) {
 		foreach( $options as $option ) {
 			if ( isset( $option['id'] ) ) {
