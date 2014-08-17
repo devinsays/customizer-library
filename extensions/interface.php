@@ -61,6 +61,23 @@ function customizer_library_register( $wp_customize ) {
 
 					    break;
 
+					// @TODO combine with 'select'
+					case 'radio':
+
+						if ( !isset( $option['sanitize_callback'] ) ) {
+							$option['sanitize_callback'] = 'customizer_library_sanitize_choices';
+						}
+
+						$wp_customize->add_control( $option['id'], array(
+							'type'    => $option['type'],
+					        'label'   => $option['label'],
+					        'section' => $option['section'],
+					        'choices' => $option['choices'],
+					        'sanitize_callback' => $option['sanitize_callback']
+					    ) );
+
+					    break;
+
 					case 'checkbox':
 
 						if ( !isset( $option['sanitize_callback'] ) ) {
