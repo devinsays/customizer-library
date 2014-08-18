@@ -3,7 +3,7 @@
  * Customizer Library
  *
  * @package		Customizer_Library
- * @author		Devin Price, The Theme Foundary
+ * @author		Devin Price, The Theme Foundry
  * @license   	GPL-2.0+
  */
 

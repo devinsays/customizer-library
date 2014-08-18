@@ -3,7 +3,7 @@
  * Customizer Utility Functions
  *
  * @package 	Customizer_Library
- * @author		Devin Price, The Theme Foundary
+ * @author		Devin Price, The Theme Foundry
  */
 
 /**

@@ -14,7 +14,7 @@ The Customizer Library adds sections, settings and controls to the customizer ba
 
 At the moment there is only one custom control (for textarea), but look for additional controls as the library matures.
 
-The Customizer Library includes additional classes and helper functions for creating inline styles and loading Google fonts.  These functions and classes were developed by [The Theme Foundary](https://thethemefoundry.com/) for their theme [Make](https://thethemefoundry.com/wordpress-themes/make/) and I've found them quite useful in my own projects.  However, I'm considering moving them into seperate modules in order to make the core library as focused as possible.  Feedback on this is welcome.
+The Customizer Library includes additional classes and helper functions for creating inline styles and loading Google fonts.  These functions and classes were developed by [The Theme Foundry](https://thethemefoundry.com/) for their theme [Make](https://thethemefoundry.com/wordpress-themes/make/) and I've found them quite useful in my own projects.  However, I'm considering moving them into seperate modules in order to make the core library as focused as possible.  Feedback on this is welcome.
 
 ## Installation
 
@@ -168,7 +168,7 @@ https://github.com/devinsays/customizer-library-demo/blob/master/inc/customizer-
 
 ## Styles
 
-The Customizer Library has a helper class to output inline styles.  This code was originally developed by [The Theme Foundary](https://thethemefoundry.com/) for use in [Make](https://thethemefoundry.com/wordpress-themes/make/).  To see how it works, see "inc/styles.php".
+The Customizer Library has a helper class to output inline styles.  This code was originally developed by [The Theme Foundry](https://thethemefoundry.com/) for use in [Make](https://thethemefoundry.com/wordpress-themes/make/).  To see how it works, see "inc/styles.php".
 
 CSS selector(s) and value are passed to Customizer_Library_Styles class like this:
 
@@ -185,7 +185,7 @@ Customizer_Library_Styles()->add( array(
 
 ## Fonts
 
-The Customizer Library has a helper functions to output font stacks and load inline fonts.  This code was also developed by [The Theme Foundary](https://thethemefoundry.com/) for use in [Make](https://thethemefoundry.com/wordpress-themes/make/).  You can see an example of font enqueing in "inc/mods.php":
+The Customizer Library has a helper functions to output font stacks and load inline fonts.  This code was also developed by [The Theme Foundry](https://thethemefoundry.com/) for use in [Make](https://thethemefoundry.com/wordpress-themes/make/).  You can see an example of font enqueing in "inc/mods.php":
 
 ~~~php
 function demo_fonts() {

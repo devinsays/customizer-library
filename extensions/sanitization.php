@@ -3,7 +3,7 @@
  * Customizer Sanization
  *
  * @package 	Customizer_Library
- * @author		Devin Price, The Theme Foundary
+ * @author		Devin Price, The Theme Foundry
  */
 
 if ( ! function_exists( 'customizer_library_sanitize_text' ) ) :

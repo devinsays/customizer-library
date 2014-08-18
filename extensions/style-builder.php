@@ -1,7 +1,7 @@
 <?php
 /**
  * @package 	Customizer_Library
- * @author		The Theme Foundary
+ * @author		The Theme Foundry
  */
 
 if ( ! class_exists( 'Customizer_Library_Styles' ) ) :

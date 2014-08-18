@@ -3,7 +3,7 @@
  * Customize for textarea, extend the WP customizer
  *
  * @package 	Customizer_Library
- * @author		Devin Price, The Theme Foundary
+ * @author		Devin Price, The Theme Foundry
  */
 
 if ( ! class_exists( 'WP_Customize_Control' ) ) {

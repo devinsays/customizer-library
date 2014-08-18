@@ -3,7 +3,7 @@
  * Theme Customizer Fonts
  *
  * @package 	Customizer_Library
- * @author		The Theme Foundary
+ * @author		The Theme Foundry
  */
 
 if ( ! function_exists( 'customizer_library_get_all_fonts' ) ) :
