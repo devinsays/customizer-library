@@ -33,12 +33,22 @@ function customizer_library_register( $wp_customize ) {
 
 	if ( $options ) {
 
+		$loop = 0;
+
 		foreach( $options as $option ) {
 
 			if ( isset( $option['type'] ) ) {
 
+				$loop++;
+
+				// Default for setting
 				if ( isset( $option['default'] ) ) {
 					$default = array( 'default' => $option['default'] );
+				}
+
+				// Priority for control
+				if ( !isset( $option['priority'] ) ) {
+					$option['priority'] = $loop;
 				}
 
 			    $wp_customize->add_setting( $option['id'], $default );
@@ -56,7 +66,8 @@ function customizer_library_register( $wp_customize ) {
 					        'label'   => $option['label'],
 					        'section' => $option['section'],
 					        'choices' => $option['choices'],
-					        'sanitize_callback' => $option['sanitize_callback']
+					        'sanitize_callback' => $option['sanitize_callback'],
+					        'priority' => $option['priority']
 					    ) );
 
 					    break;
@@ -73,7 +84,8 @@ function customizer_library_register( $wp_customize ) {
 					        'label'   => $option['label'],
 					        'section' => $option['section'],
 					        'choices' => $option['choices'],
-					        'sanitize_callback' => $option['sanitize_callback']
+					        'sanitize_callback' => $option['sanitize_callback'],
+					        'priority' => $option['priority']
 					    ) );
 
 					    break;
@@ -88,7 +100,8 @@ function customizer_library_register( $wp_customize ) {
 							'type'    => $option['type'],
 					        'label'   => $option['label'],
 					        'section' => $option['section'],
-					        'sanitize_callback' => $option['sanitize_callback']
+					        'sanitize_callback' => $option['sanitize_callback'],
+					        'priority' => $option['priority']
 					    ) );
 
 					    break;
@@ -103,7 +116,8 @@ function customizer_library_register( $wp_customize ) {
 				    		$option['id'], array(
 								'label'   => $option['label'],
 								'section' => $option['section'],
-								'sanitize_callback' => $option['sanitize_callback']
+								'sanitize_callback' => $option['sanitize_callback'],
+								'priority' => $option['priority']
 						) ) );
 
 						break;
@@ -118,7 +132,8 @@ function customizer_library_register( $wp_customize ) {
 				    		$option['id'], array(
 								'label'   => $option['label'],
 								'section' => $option['section'],
-								'sanitize_callback' => $option['sanitize_callback']
+								'sanitize_callback' => $option['sanitize_callback'],
+								'priority' => $option['priority']
 						) ) );
 
 						break;
@@ -133,7 +148,8 @@ function customizer_library_register( $wp_customize ) {
 				    		$option['id'], array(
 								'label'   => $option['label'],
 								'section' => $option['section'],
-								'sanitize_callback' => $option['sanitize_callback']
+								'sanitize_callback' => $option['sanitize_callback'],
+								'priority' => $option['priority']
 						) ) );
 
 						break;
