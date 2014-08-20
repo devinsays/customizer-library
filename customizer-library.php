@@ -12,10 +12,8 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// Exit if the Customizer_Library is already in use.
-if ( ! class_exists( 'Customizer_Library' ) ) {
-	return;
-}
+// Continue if the Customizer_Library isn't already in use.
+if ( ! class_exists( 'Customizer_Library' ) ) :
 
 // Helper functions to output the customizer controls.
 require plugin_dir_path( __FILE__ ) . 'extensions/interface.php';
@@ -86,3 +84,5 @@ class Customizer_Library {
 	}
 
 }
+
+endif;
