@@ -86,7 +86,7 @@ function customizer_library_register( $wp_customize ) {
 						)
 					);
 
-					break;
+				break;
 
 				/**
 				 * @todo combine with 'select'
@@ -97,8 +97,8 @@ function customizer_library_register( $wp_customize ) {
 						$option['sanitize_callback'] = 'customizer_library_sanitize_choices';
 					}
 
-					$wp_customize->add_control( $option['id'],
-						array(
+					$wp_customize->add_control(
+						$option['id'], array(
 							'type'              => $option['type'],
 							'label'             => $option['label'],
 							'section'           => $option['section'],
@@ -108,7 +108,7 @@ function customizer_library_register( $wp_customize ) {
 						)
 					);
 
-					break;
+				break;
 
 				case 'checkbox':
 
@@ -116,15 +116,17 @@ function customizer_library_register( $wp_customize ) {
 						$option['sanitize_callback'] = 'customizer_library_sanitize_checkbox';
 					}
 
-					$wp_customize->add_control( $option['id'], array(
-						'type'              => $option['type'],
-						'label'             => $option['label'],
-						'section'           => $option['section'],
-						'sanitize_callback' => $option['sanitize_callback'],
-						'priority'          => $option['priority']
-					) );
+					$wp_customize->add_control(
+						$option['id'], array(
+							'type'              => $option['type'],
+							'label'             => $option['label'],
+							'section'           => $option['section'],
+							'sanitize_callback' => $option['sanitize_callback'],
+							'priority'          => $option['priority']
+						)
+					);
 
-					break;
+				break;
 
 				case 'color':
 
@@ -144,7 +146,7 @@ function customizer_library_register( $wp_customize ) {
 						)
 					);
 
-					break;
+				break;
 
 				case 'upload':
 
@@ -164,7 +166,7 @@ function customizer_library_register( $wp_customize ) {
 						)
 					);
 
-					break;
+				break;
 
 				case 'textarea':
 
@@ -184,7 +186,7 @@ function customizer_library_register( $wp_customize ) {
 						)
 					);
 
-					break;
+				break;
 
 			}
 		}
