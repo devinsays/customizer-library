@@ -4,7 +4,8 @@
  *
  * @package		Customizer_Library
  * @author		Devin Price, The Theme Foundry
- * @license   	GPL-2.0+
+ * @license		GPL-2.0+
+ * @version		1.0.0
  */
 
 // If this file is called directly, abort.

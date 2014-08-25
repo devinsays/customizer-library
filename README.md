@@ -226,3 +226,10 @@ if ( $mod != customizer_library_get_default( $setting ) ) {
 
 }
 ~~~
+
+## Changelog
+
+1.0.0
+===
+
+* Public Release
