@@ -11,7 +11,7 @@
  */
 function customizer_library_customize_preview_js() {
 
-	$path = get_template_directory_uri() . '/inc/customizer';
+	$path = str_replace( WP_CONTENT_DIR, WP_CONTENT_URL, dirname( dirname( __FILE__ ) ) );
 
 	wp_enqueue_script( 'customizer_library_customizer', $path . '/js/customizer.js', array( 'customize-preview' ), '1.0.0', true );
 

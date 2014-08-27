@@ -229,6 +229,11 @@ if ( $mod != customizer_library_get_default( $setting ) ) {
 
 ## Changelog
 
+Development
+===
+
+* Bugfix: customizer.js enqueue relative to library
+
 1.0.0
 ===
 
