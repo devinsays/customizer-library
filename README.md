@@ -183,6 +183,31 @@ Customizer_Library_Styles()->add( array(
 ) );
 ~~~
 
+#### Media Queries
+
+Media queries can also be be used with Customizer_Library_Styles.  Here's an example for outputting logo-image-2x on high resolution devices.
+
+~~~php
+$setting = 'logo-image-2x';
+$mod = get_theme_mod( $setting, false );
+
+if ( $mod ) {
+
+	Customizer_Library_Styles()->add( array(
+		'selectors' => array(
+			'.logo'
+		),
+		'declarations' => array(
+			'background-image' => 'url(' . $mod . ')'
+		),
+		'media' => '(-webkit-min-device-pixel-ratio: 1.3),(-o-min-device-pixel-ratio: 2.6/2),(min--moz-device-pixel-ratio: 1.3),(min-device-pixel-ratio: 1.3),(min-resolution: 1.3dppx)'
+	) );
+
+}
+~~~
+
+
+
 ## Fonts
 
 The Customizer Library has a helper functions to output font stacks and load inline fonts.  This code was also developed by [The Theme Foundry](https://thethemefoundry.com/) for use in [Make](https://thethemefoundry.com/wordpress-themes/make/).  You can see an example of font enqueing in "inc/mods.php":

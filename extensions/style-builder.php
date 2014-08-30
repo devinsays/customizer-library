@@ -86,7 +86,7 @@ class Customizer_Library_Styles {
 	 *
 	 * Accepts data to eventually be turned into CSS. Usage:
 	 *
-	 * ttfmake_get_css()->add( array(
+	 * Customizer_Library_Styles()->add( array(
 	 *     'selectors'    => array( '.site-header-main' ),
 	 *     'declarations' => array(
 	 *         'background-color' => $header_background_color
@@ -235,7 +235,7 @@ class Customizer_Library_Styles {
 
 		/**
 		 * Note that when this output is prepared, it is not escaped, sanitized or otherwise altered. The sanitization
-		 * routines are implemented when the developer calls `ttfmake_get_css->add()`. Because every property value has
+		 * routines are implemented when the developer calls `Customizer_Library_Styles()->add`. Because every property value has
 		 * special sanitization needs, it is handled at that point.
 		 */
 		foreach ( $declarations as $property => $value ) {
