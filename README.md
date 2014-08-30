@@ -36,18 +36,29 @@ The Customizer Library currently supports these options:
 
 ### Sections
 
+Sections are convenient ways to group controls in the customizer.
+
 Customizer Sections can be defined like this:
 
 ~~~php
 // Example Section
-$section = 'example';
 
 $sections[] = array(
-	'id' => $section,
-	'title' => __( 'Example Section', 'textdomain' ),
-	'priority' => '30'
+	'id' => 'example', // Required
+	'title' => __( 'Example Section', 'textdomain' ), // Required
+	'priority' => '30', // Optional
+	'description' => 'Example description' // Optional
 );
 ~~~
+
+The Customizer_Library uses the core function `$wp_customize->add_section($id, $args);` to add sections, and all the same $args are available.  See [codex](http://codex.wordpress.org/Class_Reference/WP_Customize_Manager/add_section).
+
+#### Arguments
+
+* title : The visible name of a controller section.
+* priority : This controls the order in which this section appears in the Theme Customizer sidebar.
+* description : This optional argument can add additional descriptive text to the section.
+
 
 ### Checkbox
 
