@@ -141,7 +141,7 @@ function customizer_library_register( $wp_customize ) {
 								'label'             => $option['label'],
 								'section'           => $option['section'],
 								'sanitize_callback' => $option['sanitize_callback'],
-								'priority'          => $option['priority']
+								'priority'          => $option['priority'],
 							)
 						)
 					);
@@ -174,17 +174,36 @@ function customizer_library_register( $wp_customize ) {
 						$option['sanitize_callback'] = 'customizer_library_sanitize_text';
 					}
 
-					$wp_customize->add_control(
-						new Customizer_Library_Textarea(
-							$wp_customize,
-							$option['id'], array(
+					// Custom control required before WordPress 4.0
+					if ( version_compare( $GLOBALS['wp_version'], '3.9.2', '<=' ) ) :
+
+						$wp_customize->add_control(
+							new Customizer_Library_Textarea(
+								$wp_customize,
+								$option['id'], array(
+									'label'             => $option['label'],
+									'section'           => $option['section'],
+									'sanitize_callback' => $option['sanitize_callback'],
+									'priority'          => $option['priority']
+								)
+							)
+						);
+
+					else :
+
+						$wp_customize->add_control( 'setting_id', array(
+							$wp_customize->add_control(
+								$option['id'], array(
+								'type'              => $option['type'],
 								'label'             => $option['label'],
 								'section'           => $option['section'],
 								'sanitize_callback' => $option['sanitize_callback'],
 								'priority'          => $option['priority']
+								)
 							)
-						)
-					);
+						) );
+
+					endif;
 
 				break;
 

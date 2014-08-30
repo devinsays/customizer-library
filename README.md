@@ -269,6 +269,7 @@ Development
 ===
 
 * Bugfix: customizer.js enqueue relative to library
+* Enhancement: Use new textarea control from core
 
 1.0.0
 ===
