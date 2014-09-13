@@ -18,148 +18,174 @@ if ( ! function_exists( 'customizer_library_register' ) ) :
 function customizer_library_register( $wp_customize ) {
 
 	$customizer_library = Customizer_Library::Instance();
-	$options = $customizer_library->get_options();
+
+	$options  = $customizer_library->get_options();
+
+	//* Bail early if we don't have any options.
+	if ( empty( $options ) ) {
+		return;
+	}
 
 	$sections = $options['sections'];
 
 	if ( isset( $sections ) ) {
 		foreach( $sections as $section ) {
-			$wp_customize->add_section( $section['id'], array(
-				'title' => $section['title'],
-				'priority' => $section['priority'],
-			) );
+
+			if ( !isset( $section['description'] ) ) {
+				$section['description'] = false;
+			}
+
+			$wp_customize->add_section( $section['id'], $section );
 		}
 	}
 
-	if ( $options ) {
+	$loop = 0;
 
-		$loop = 0;
+	foreach( $options as $option ) {
 
-		foreach( $options as $option ) {
+		if ( isset( $option['type'] ) ) {
 
-			if ( isset( $option['type'] ) ) {
+			$loop++;
 
-				$loop++;
+			// Default for setting
+			if ( isset( $option['default'] ) ) {
+				$default = array( 'default' => $option['default'] );
+			}
 
-				// Default for setting
-				if ( isset( $option['default'] ) ) {
-					$default = array( 'default' => $option['default'] );
-				}
+			// Priority for control
+			if ( ! isset( $option['priority'] ) ) {
+				$option['priority'] = $loop;
+			}
 
-				// Priority for control
-				if ( !isset( $option['priority'] ) ) {
-					$option['priority'] = $loop;
-				}
+			$wp_customize->add_setting( $option['id'], $default );
 
-			    $wp_customize->add_setting( $option['id'], $default );
+			switch ( $option['type'] ) {
 
-				switch ( $option['type'] ) {
+				case 'select':
 
-					case 'select':
+					if ( ! isset( $option['sanitize_callback'] ) ) {
+						$option['sanitize_callback'] = 'customizer_library_sanitize_choices';
+					}
 
-						if ( !isset( $option['sanitize_callback'] ) ) {
-							$option['sanitize_callback'] = 'customizer_library_sanitize_choices';
-						}
+					$wp_customize->add_control(
+						$option['id'], $option
+					);
 
-						$wp_customize->add_control( $option['id'], array(
-							'type'    => $option['type'],
-					        'label'   => $option['label'],
-					        'section' => $option['section'],
-					        'choices' => $option['choices'],
-					        'sanitize_callback' => $option['sanitize_callback'],
-					        'priority' => $option['priority']
-					    ) );
+				break;
 
-					    break;
+				/**
+				 * @todo combine with 'select'
+				 */
+				case 'radio':
 
-					// @TODO combine with 'select'
-					case 'radio':
+					if ( ! isset( $option['sanitize_callback'] ) ) {
+						$option['sanitize_callback'] = 'customizer_library_sanitize_choices';
+					}
 
-						if ( !isset( $option['sanitize_callback'] ) ) {
-							$option['sanitize_callback'] = 'customizer_library_sanitize_choices';
-						}
+					$wp_customize->add_control(
+						$option['id'], $option
+					);
 
-						$wp_customize->add_control( $option['id'], array(
-							'type'    => $option['type'],
-					        'label'   => $option['label'],
-					        'section' => $option['section'],
-					        'choices' => $option['choices'],
-					        'sanitize_callback' => $option['sanitize_callback'],
-					        'priority' => $option['priority']
-					    ) );
+				break;
 
-					    break;
+				case 'checkbox':
 
-					case 'checkbox':
+					if ( ! isset( $option['sanitize_callback'] ) ) {
+						$option['sanitize_callback'] = 'customizer_library_sanitize_checkbox';
+					}
 
-						if ( !isset( $option['sanitize_callback'] ) ) {
-							$option['sanitize_callback'] = 'customizer_library_sanitize_checkbox';
-						}
+					$wp_customize->add_control(
+						$option['id'], $option
+					);
 
-						$wp_customize->add_control( $option['id'], array(
-							'type'    => $option['type'],
-					        'label'   => $option['label'],
-					        'section' => $option['section'],
-					        'sanitize_callback' => $option['sanitize_callback'],
-					        'priority' => $option['priority']
-					    ) );
+				break;
 
-					    break;
+				case 'color':
 
-				    case 'color':
+					if ( ! isset( $option['sanitize_callback'] ) ) {
+						$option['sanitize_callback'] = 'sanitize_hex_color';
+					}
 
-						if ( !isset( $option['sanitize_callback'] ) ) {
-							$option['sanitize_callback'] = 'sanitize_hex_color';
-						}
+					$wp_customize->add_control(
+						new WP_Customize_Color_Control(
+							$wp_customize, $option['id'], $option
+						)
+					);
 
-				    	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize,
-				    		$option['id'], array(
-								'label'   => $option['label'],
-								'section' => $option['section'],
+				break;
+
+				case 'image':
+
+					if ( ! isset( $option['sanitize_callback'] ) ) {
+						$option['sanitize_callback'] = 'customizer_library_sanitize_file_url';
+					}
+
+					$wp_customize->add_control(
+						new WP_Customize_Image_Control(
+							$wp_customize,
+							$option['id'], array(
+								'label'             => $option['label'],
+								'section'           => $option['section'],
 								'sanitize_callback' => $option['sanitize_callback'],
-								'priority' => $option['priority']
-						) ) );
+								'priority'          => $option['priority']
+							)
+						)
+					);
 
-						break;
+				break;
 
-					case 'upload':
+				case 'upload':
 
-						if ( !isset( $option['sanitize_callback'] ) ) {
-							$option['sanitize_callback'] = 'customizer_library_sanitize_file_url';
-						}
+					if ( ! isset( $option['sanitize_callback'] ) ) {
+						$option['sanitize_callback'] = 'customizer_library_sanitize_file_url';
+					}
 
-				    	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize,
-				    		$option['id'], array(
-								'label'   => $option['label'],
-								'section' => $option['section'],
+					$wp_customize->add_control(
+						new WP_Customize_Upload_Control(
+							$wp_customize,
+							$option['id'], array(
+								'label'             => $option['label'],
+								'section'           => $option['section'],
 								'sanitize_callback' => $option['sanitize_callback'],
-								'priority' => $option['priority']
-						) ) );
+								'priority'          => $option['priority']
+							)
+						)
+					);
 
-						break;
+				break;
 
-					case 'textarea':
+				case 'textarea':
 
-						if ( !isset( $option['sanitize_callback'] ) ) {
-							$option['sanitize_callback'] = 'customizer_library_sanitize_text';
-						}
+					if ( ! isset( $option['sanitize_callback'] ) ) {
+						$option['sanitize_callback'] = 'customizer_library_sanitize_text';
+					}
 
-				    	$wp_customize->add_control( new Customizer_Library_Textarea( $wp_customize,
-				    		$option['id'], array(
-								'label'   => $option['label'],
-								'section' => $option['section'],
-								'sanitize_callback' => $option['sanitize_callback'],
-								'priority' => $option['priority']
-						) ) );
+					// Custom control required before WordPress 4.0
+					if ( version_compare( $GLOBALS['wp_version'], '3.9.2', '<=' ) ) :
 
-						break;
+						$wp_customize->add_control(
+							new Customizer_Library_Textarea(
+								$wp_customize, $option['id'], $option
+							)
+						);
 
-			    }
+					else :
+
+						$wp_customize->add_control( 'setting_id', array(
+							$wp_customize->add_control(
+								$option['id'], $option
+							)
+						) );
+
+					endif;
+
+				break;
 
 			}
 		}
 	}
 }
+
 endif;
 
 add_action( 'customize_register', 'customizer_library_register', 100 );

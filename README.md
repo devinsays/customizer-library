@@ -36,18 +36,29 @@ The Customizer Library currently supports these options:
 
 ### Sections
 
+Sections are convenient ways to group controls in the customizer.
+
 Customizer Sections can be defined like this:
 
 ~~~php
 // Example Section
-$section = 'example';
 
 $sections[] = array(
-	'id' => $section,
-	'title' => __( 'Example Section', 'textdomain' ),
-	'priority' => '30'
+	'id' => 'example', // Required
+	'title' => __( 'Example Section', 'textdomain' ), // Required
+	'priority' => '30', // Optional
+	'description' => 'Example description' // Optional
 );
 ~~~
+
+The Customizer_Library uses the core function `$wp_customize->add_section($id, $args);` to add sections, and all the same $args are available.  See [codex](http://codex.wordpress.org/Class_Reference/WP_Customize_Manager/add_section).
+
+#### Arguments
+
+* title : The visible name of a controller section.
+* priority : This controls the order in which this section appears in the Theme Customizer sidebar.
+* description : This optional argument can add additional descriptive text to the section.
+
 
 ### Checkbox
 
@@ -183,6 +194,31 @@ Customizer_Library_Styles()->add( array(
 ) );
 ~~~
 
+#### Media Queries
+
+Media queries can also be be used with Customizer_Library_Styles.  Here's an example for outputting logo-image-2x on high resolution devices.
+
+~~~php
+$setting = 'logo-image-2x';
+$mod = get_theme_mod( $setting, false );
+
+if ( $mod ) {
+
+	Customizer_Library_Styles()->add( array(
+		'selectors' => array(
+			'.logo'
+		),
+		'declarations' => array(
+			'background-image' => 'url(' . $mod . ')'
+		),
+		'media' => '(-webkit-min-device-pixel-ratio: 1.3),(-o-min-device-pixel-ratio: 2.6/2),(min--moz-device-pixel-ratio: 1.3),(min-device-pixel-ratio: 1.3),(min-resolution: 1.3dppx)'
+	) );
+
+}
+~~~
+
+
+
 ## Fonts
 
 The Customizer Library has a helper functions to output font stacks and load inline fonts.  This code was also developed by [The Theme Foundry](https://thethemefoundry.com/) for use in [Make](https://thethemefoundry.com/wordpress-themes/make/).  You can see an example of font enqueing in "inc/mods.php":
@@ -226,3 +262,16 @@ if ( $mod != customizer_library_get_default( $setting ) ) {
 
 }
 ~~~
+
+## Changelog
+
+Development
+===
+
+* Bugfix: customizer.js enqueue relative to library
+* Enhancement: Use new textarea control from core
+
+1.0.0
+===
+
+* Public Release

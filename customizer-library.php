@@ -34,7 +34,9 @@ require plugin_dir_path( __FILE__ ) . 'extensions/utilities.php';
 require plugin_dir_path( __FILE__ ) . 'extensions/preview.php';
 
 // Custom controls for the theme customizer.
-require plugin_dir_path( __FILE__ ) . 'custom-controls/textarea.php';
+if ( version_compare( $GLOBALS['wp_version'], '4.0', '<' ) ) {
+	require plugin_dir_path( __FILE__ ) . 'custom-controls/textarea.php';
+}
 
 /**
  * Class wrapper with useful methods for interacting with the theme customizer.
