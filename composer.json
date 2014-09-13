@@ -1,0 +1,21 @@
+{
+    "name"       : "devinsays/customizer-library",
+    "description": "Customizer Library - A helpful library for working with the WordPress customizer.",
+    "keywords"   : ["wordpress", "customizer"],
+    "homepage"   : "https://github.com/devinsays/customizer-library",
+    "license"    : "GPL-2.0+",
+    "authors"    : [
+        {
+            "name"    : "Devin Price",
+            "email"   : "devin@wptheming.com",
+            "homepage": "http://wptheming.com"
+        }
+    ],
+    "support"    : {
+        "issues": "https://github.com/devinsays/customizer-library/issues",
+        "source": "https://github.com/devinsays/customizer-library"
+    },
+    "autoload" : {
+        "files" : ["customizer-library.php"]
+    }
+}
