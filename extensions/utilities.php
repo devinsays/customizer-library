@@ -36,7 +36,8 @@ function customizer_library_get_default( $setting ) {
  */
 function customizer_library_get_choices( $setting ) {
 
-	$options = customizer_library_options();
+	$customizer_library = Customizer_Library::Instance();
+	$options = $customizer_library->get_options();
 
 	if ( isset( $options[$setting]['choices'] ) ) {
 		return $options[$setting]['choices'];

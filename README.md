@@ -30,6 +30,7 @@ The Customizer Library currently supports these options:
 * Select
 * Radio
 * Upload
+* Image
 * Color
 * Textarea
 * Select (Typography)
@@ -265,7 +266,13 @@ if ( $mod != customizer_library_get_default( $setting ) ) {
 
 ## Changelog
 
-Development
+1.2.0
+===
+
+* Allow setting parameters
+* Refactor interface loop
+
+1.1.0
 ===
 
 * Bugfix: customizer.js enqueue relative to library
