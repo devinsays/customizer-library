@@ -112,16 +112,16 @@ if ( ! function_exists( 'customizer_library_get_google_font_subsets' ) ) :
  */
 function customizer_library_get_google_font_subsets() {
 	return array(
-		'all'          => __( 'All', 'gather' ),
-		'cyrillic'     => __( 'Cyrillic', 'gather' ),
-		'cyrillic-ext' => __( 'Cyrillic Extended', 'gather' ),
-		'devanagari'   => __( 'Devanagari', 'gather' ),
-		'greek'        => __( 'Greek', 'gather' ),
-		'greek-ext'    => __( 'Greek Extended', 'gather' ),
-		'khmer'        => __( 'Khmer', 'gather' ),
-		'latin'        => __( 'Latin', 'gather' ),
-		'latin-ext'    => __( 'Latin Extended', 'gather' ),
-		'vietnamese'   => __( 'Vietnamese', 'gather' ),
+		'all'          => __( 'All', 'textdomain' ),
+		'cyrillic'     => __( 'Cyrillic', 'textdomain' ),
+		'cyrillic-ext' => __( 'Cyrillic Extended', 'textdomain' ),
+		'devanagari'   => __( 'Devanagari', 'textdomain' ),
+		'greek'        => __( 'Greek', 'textdomain' ),
+		'greek-ext'    => __( 'Greek Extended', 'textdomain' ),
+		'khmer'        => __( 'Khmer', 'textdomain' ),
+		'latin'        => __( 'Latin', 'textdomain' ),
+		'latin-ext'    => __( 'Latin Extended', 'textdomain' ),
+		'vietnamese'   => __( 'Vietnamese', 'textdomain' ),
 	);
 }
 endif;
@@ -181,15 +181,15 @@ if ( ! function_exists( 'customizer_library_get_standard_fonts' ) ) :
 function customizer_library_get_standard_fonts() {
 	return array(
 		'serif' => array(
-			'label' => _x( 'Serif', 'font style', 'gather' ),
+			'label' => _x( 'Serif', 'font style', 'textdomain' ),
 			'stack' => 'Georgia,Times,"Times New Roman",serif'
 		),
 		'sans-serif' => array(
-			'label' => _x( 'Sans Serif', 'font style', 'gather' ),
+			'label' => _x( 'Sans Serif', 'font style', 'textdomain' ),
 			'stack' => '"Helvetica Neue",Helvetica,Arial,sans-serif'
 		),
 		'monospace' => array(
-			'label' => _x( 'Monospaced', 'font style', 'gather' ),
+			'label' => _x( 'Monospaced', 'font style', 'textdomain' ),
 			'stack' => 'Monaco,"Lucida Sans Typewriter","Lucida Typewriter","Courier New",Courier,monospace'
 		)
 	);
