@@ -266,6 +266,11 @@ if ( $mod != customizer_library_get_default( $setting ) ) {
 
 ## Changelog
 
+Development
+===
+
+* Change how setting parameters are added
+
 1.2.0
 ===
 
