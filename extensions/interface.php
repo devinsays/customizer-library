@@ -172,24 +172,30 @@ function customizer_library_add_sections( $sections, $wp_customize )  {
  */
 function customizer_library_add_setting( $option, $wp_customize )  {
 
-	// Arguments for $wp_customize->add_setting
-	// http://codex.wordpress.org/Class_Reference/WP_Customize_Manager/add_setting
-	$setting_args = array(
-		'default',
-		'capability',
-		'theme_supports',
-		'sanitize_callback'
+	$settings_default = array(
+		'default' => null,
+		'option_type' => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'theme_supports' => null,
+		'transport' => null,
+		'sanitize_callback' => 'wp_kses_post',
+		'sanitize_js_callback' => null
 	);
 
-	$args = array();
+	// Settings defaults
+	$settings = array_merge( $settings_default, $option );
 
-	foreach ( $setting_args as $arg ) {
-		if ( isset( $option[$arg] ) ) {
-			$args[$arg] = $option[$arg];
-		}
-	}
-
-	$wp_customize->add_setting( $option['id'], $args );
+	// Arguments for $wp_customize->add_setting
+	$wp_customize->add_setting(	$option['id'], array(
+			'default' => $settings['default'],
+			'type' => $settings['option_type'],
+			'capability' => $settings['capability'],
+			'theme_supports' => $settings['theme_supports'],
+			'transport' => $settings['transport'],
+			'sanitize_callback' => $settings['sanitize_callback'],
+			'sanitize_js_callback' => $settings['sanitize_js_callback']
+		)
+	);
 
 }
 
