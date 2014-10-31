@@ -60,6 +60,16 @@ The Customizer_Library uses the core function `$wp_customize->add_section($id, $
 * priority : This controls the order in which this section appears in the Theme Customizer sidebar.
 * description : This optional argument can add additional descriptive text to the section.
 
+### Text
+
+~~~php
+$options['example-text'] = array(
+	'id' => 'example-text',
+	'label'   => __( 'Example Text Input', 'textdomain' ),
+	'section' => $section,
+	'type'    => 'text',
+);
+~~~
 
 ### Checkbox
 
@@ -269,6 +279,7 @@ if ( $mod != customizer_library_get_default( $setting ) ) {
 Development
 ===
 
+* Add text input option
 * Change how setting parameters are added
 
 1.2.0

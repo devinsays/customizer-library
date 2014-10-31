@@ -57,6 +57,7 @@ function customizer_library_register( $wp_customize ) {
 			// Adds control based on control type
 			switch ( $option['type'] ) {
 
+				case 'text':
 				case 'select':
 				case 'radio':
 				case 'checkbox':
@@ -225,7 +226,7 @@ function customizer_library_get_sanitization( $type )  {
 		return 'customizer_library_sanitize_file_url';
 	}
 
-	if ( 'textarea' == $type ) {
+	if ( 'text' == $type || 'textarea' == $type ) {
 		return 'customizer_library_sanitize_text';
 	}
 
