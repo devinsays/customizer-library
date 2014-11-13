@@ -2540,6 +2540,40 @@ function customizer_library_get_google_fonts() {
 				'latin',
 			),
 		),
+		'Fira Sans' => array(
+			'label'    => 'Fira Sans',
+			'variants' => array(
+				'300',
+				'300italic',
+				'400',
+				'400italic',
+				'500',
+				'500italic',
+				'700',
+				'700italic',
+			),
+			'subsets' => array(
+				'latin',
+				'greek',
+				'cyrillic',
+				'latin-ext',
+				'cyrillic-ext',
+			),
+		),
+		'Fira Mono' => array(
+			'label'    => 'Fira Mono',
+			'variants' => array(
+				'400',
+				'700',
+			),
+			'subsets' => array(
+				'latin',
+				'greek',
+				'cyrillic',
+				'latin-ext',
+				'cyrillic-ext',
+			),
+		),
 		'Fjalla One' => array(
 			'label'    => 'Fjalla One',
 			'variants' => array(
@@ -5907,6 +5941,26 @@ function customizer_library_get_google_fonts() {
 				'latin-ext',
 			),
 		),
+		'Rubik One' => array(
+			'label'    => 'Rubik One',
+			'variants' => array(
+				'400',
+			),
+			'subsets' => array(
+				'latin',
+				'latin-ext',
+			),
+		),
+		'Rubik Mono One' => array(
+			'label'    => 'Rubik Mono One',
+			'variants' => array(
+				'400',
+			),
+			'subsets' => array(
+				'latin',
+				'latin-ext',
+			),
+		),
 		'Rufina' => array(
 			'label'    => 'Rufina',
 			'variants' => array(
@@ -6428,6 +6482,18 @@ function customizer_library_get_google_fonts() {
 			'subsets' => array(
 				'latin',
 				'vietnamese',
+				'latin-ext',
+			),
+		),
+		'Source Serif Pro' => array(
+			'label'    => 'Source Serif Pro',
+			'variants' => array(
+				'400',
+				'600',
+				'700',
+			),
+			'subsets' => array(
+				'latin',
 				'latin-ext',
 			),
 		),
