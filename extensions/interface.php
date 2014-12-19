@@ -26,6 +26,15 @@ function customizer_library_register( $wp_customize ) {
 		return;
 	}
 
+    // Add the panel
+    $wp_customize->add_panel( 'theme_options', array(
+        'priority' => 10,
+        'capability' => 'edit_theme_options',
+        'theme_supports' => '',
+        'title' => __( 'Theme Options', 'demo' ),
+        'description' => __( 'Theme specific options.', 'demo' ),
+    ) );
+
 	// Add the sections
 	if ( isset( $options['sections'] ) ) {
 		customizer_library_add_sections( $options['sections'], $wp_customize );
