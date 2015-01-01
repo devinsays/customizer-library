@@ -51,6 +51,11 @@ function customizer_library_register( $wp_customize ) {
 				$option['active_callback'] = '';
 			}
 
+			// Set blank description if one isn't set
+			if ( ! isset( $option['description'] ) ) {
+				$option['description'] = '';
+			}
+
 			// Add the setting
 			customizer_library_add_setting( $option, $wp_customize );
 
