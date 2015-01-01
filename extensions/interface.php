@@ -51,6 +51,11 @@ function customizer_library_register( $wp_customize ) {
 				$option['active_callback'] = '';
 			}
 
+			// Set blank description if one isn't set
+			if ( ! isset( $option['description'] ) ) {
+				$option['description'] = '';
+			}
+
 			// Add the setting
 			customizer_library_add_setting( $option, $wp_customize );
 
@@ -66,6 +71,7 @@ function customizer_library_register( $wp_customize ) {
 				case 'select':
 				case 'radio':
 				case 'checkbox':
+				case 'range':
 
 					$wp_customize->add_control(
 						$option['id'], $option
@@ -93,7 +99,8 @@ function customizer_library_register( $wp_customize ) {
 								'section'           => $option['section'],
 								'sanitize_callback' => $option['sanitize_callback'],
 								'priority'          => $option['priority'],
-								'active_callback'	=> $option['active_callback']
+								'active_callback'	=> $option['active_callback'],
+								'description'	    => $option['description']
 							)
 						)
 					);
@@ -110,7 +117,8 @@ function customizer_library_register( $wp_customize ) {
 								'section'           => $option['section'],
 								'sanitize_callback' => $option['sanitize_callback'],
 								'priority'          => $option['priority'],
-								'active_callback'	=> $option['active_callback']
+								'active_callback'	=> $option['active_callback'],
+								'description'	    => $option['description']
 							)
 						)
 					);
@@ -187,7 +195,8 @@ function customizer_library_add_setting( $option, $wp_customize )  {
 		'theme_supports' => null,
 		'transport' => null,
 		'sanitize_callback' => 'wp_kses_post',
-		'sanitize_js_callback' => null
+		'sanitize_js_callback' => null,
+		'description' => null
 	);
 
 	// Settings defaults
@@ -201,7 +210,8 @@ function customizer_library_add_setting( $option, $wp_customize )  {
 			'theme_supports' => $settings['theme_supports'],
 			'transport' => $settings['transport'],
 			'sanitize_callback' => $settings['sanitize_callback'],
-			'sanitize_js_callback' => $settings['sanitize_js_callback']
+			'sanitize_js_callback' => $settings['sanitize_js_callback'],
+			'description' => $settings['description']
 		)
 	);
 

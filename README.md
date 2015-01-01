@@ -32,6 +32,7 @@ The Customizer Library currently supports these options:
 * Upload
 * Image
 * Color
+* Range
 * Textarea
 * Select (Typography)
 
@@ -142,6 +143,24 @@ $options['example-color'] = array(
 	'section' => $section,
 	'type'    => 'color',
 	'default' => $color // hex
+);
+~~~
+
+### Range
+
+~~~php
+$options['example-range'] = array(
+	'id' => 'example-range',
+	'label'   => __( 'Example Range', 'demo' ),
+	'section' => $section,
+	'type'    => 'range',
+	'default' => '',
+    'input_attrs' => array(
+        'min'   => 100,
+        'max'   => 3000,
+        'step'  => 100
+    ),
+
 );
 ~~~
 
