@@ -75,6 +75,7 @@ function customizer_library_register( $wp_customize ) {
 				case 'select':
 				case 'radio':
 				case 'checkbox':
+				case 'range':
 
 					$wp_customize->add_control(
 						$option['id'], $option
