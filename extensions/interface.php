@@ -36,6 +36,11 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 			customizer_library_add_panels( $options['panels'], $wp_customize );
 		}
 
+		// Set blank description if one isn't set
+		if ( ! isset( $option['description'] ) ) {
+			$option['description'] = '';
+		}
+
 		// Sets the priority for each control added
 		$loop = 0;
 
@@ -98,7 +103,8 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 									'section'           => $option['section'],
 									'sanitize_callback' => $option['sanitize_callback'],
 									'priority'          => $option['priority'],
-									'active_callback'   => $option['active_callback']
+									'active_callback'   => $option['active_callback'],
+									'descpription'      => $option['description']
 								)
 							)
 						);
@@ -115,7 +121,8 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 									'section'           => $option['section'],
 									'sanitize_callback' => $option['sanitize_callback'],
 									'priority'          => $option['priority'],
-									'active_callback'   => $option['active_callback']
+									'active_callback'   => $option['active_callback'],
+									'descpription'      => $option['description']
 								)
 							)
 						);
