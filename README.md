@@ -55,18 +55,38 @@ $sections[] = array(
 
 ### Panels
 
-Panels are a convenient way to group your different sections, to futher organize your settings. Panels are a way to group Customizer sections, just like sections are a way to group controls.
-*Panels require WP >= 4.0* 
+Panels are a convenient way to group your different sections.
 
-Customizer Panels 
+Here's an example that adds a panel, a section to the panel, and then a text option to that section:
 
-The Customizer_Library uses the core function `$wp_customize->add_panel($id, $args);` to add panels, and all the same $args are available.  See [codex]https://developer.wordpress.org/reference/classes/wp_customize_manager/add_panel/).
+~~~php
+// Panel Example
+$panel = 'panel';
 
-#### Arguments
+$panels[] = array(
+	'id' => $panel,
+	'title' => __( 'Panel Examples', 'demo' ),
+	'priority' => '100'
+);
 
-* title : The visible name of a controller section.
-* priority : This controls the order in which this section appears in the Theme Customizer sidebar.
-* description : This optional argument can add additional descriptive text to the section.
+$section = 'panel-section';
+
+$sections[] = array(
+	'id' => $section,
+	'title' => __( 'Panel Section', 'demo' ),
+	'priority' => '10',
+	'panel' => $panel
+);
+
+$options['example-panel-text'] = array(
+	'id' => 'example-panel-text',
+	'label'   => __( 'Example Text Input', 'demo' ),
+	'section' => $section,
+	'type'    => 'text',
+);
+~~~
+
+The Customizer_Library uses the core function `$wp_customize->add_panel( $id, $args );` to add panels, and all the same $args are available. See [codex](https://developer.wordpress.org/reference/classes/wp_customize_manager/add_panel/).
 
 ### Text
 
