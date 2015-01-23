@@ -274,19 +274,20 @@ if ( $mod != customizer_library_get_default( $setting ) ) {
 }
 ~~~
 
-## Changelog
+## Change Log
 
 Development
 ===
 
-* Add text input option
-* Change how setting parameters are added
+* Enhancement: Add text input option
+* Enhancement: Sort system fonts and webfonts within dropdown
+* Update: Change how setting parameters are added
 
 1.2.0
 ===
 
-* Allow setting parameters
-* Refactor interface loop
+* Enhancement: Allow setting parameters
+* Update: Refactor interface loop
 
 1.1.0
 ===
