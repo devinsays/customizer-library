@@ -48,11 +48,19 @@ $sections[] = array(
 	'id' => 'example', // Required
 	'title' => __( 'Example Section', 'textdomain' ), // Required
 	'priority' => '30', // Optional
-	'description' => 'Example description' // Optional
+	'description' => 'Example description', // Optional
+	'panel' => 'panel_id' // optional, and it requires WP >= 4.0
 );
 ~~~
 
-The Customizer_Library uses the core function `$wp_customize->add_section($id, $args);` to add sections, and all the same $args are available.  See [codex](http://codex.wordpress.org/Class_Reference/WP_Customize_Manager/add_section).
+### Panels
+
+Panels are a convenient way to group your different sections, to futher organize your settings. Panels are a way to group Customizer sections, just like sections are a way to group controls.
+*Panels require WP >= 4.0* 
+
+Customizer Panels 
+
+The Customizer_Library uses the core function `$wp_customize->add_panel($id, $args);` to add panels, and all the same $args are available.  See [codex]https://developer.wordpress.org/reference/classes/wp_customize_manager/add_panel/).
 
 #### Arguments
 
@@ -281,6 +289,7 @@ Development
 
 * Enhancement: Add text input option
 * Enhancement: Sort system fonts and webfonts within dropdown
+* Enhancement: Add Panels Support, from WP 4.0
 * Update: Change how setting parameters are added
 
 1.2.0
