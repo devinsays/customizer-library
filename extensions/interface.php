@@ -73,6 +73,7 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 				switch ( $option['type'] ) {
 
 					case 'text':
+					case 'url':
 					case 'select':
 					case 'radio':
 					case 'checkbox':
@@ -274,6 +275,10 @@ function customizer_library_get_sanitization( $type ) {
 
 	if ( 'text' == $type || 'textarea' == $type ) {
 		return 'customizer_library_sanitize_text';
+	}
+
+	if ( 'url' == $type ) {
+		return 'esc_url';
 	}
 
 	// If a custom option is being used, return false

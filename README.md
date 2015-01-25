@@ -32,6 +32,8 @@ The Customizer Library currently supports these options:
 * Upload
 * Image
 * Color
+* Text
+* URL
 * Textarea
 * Select (Typography)
 
@@ -96,6 +98,17 @@ $options['example-text'] = array(
 	'label'   => __( 'Example Text Input', 'textdomain' ),
 	'section' => $section,
 	'type'    => 'text',
+);
+~~~
+
+### URL
+
+~~~php
+$options['example-url'] = array(
+	'id' => 'example-url',
+	'label'   => __( 'Example URL Input', 'textdomain' ),
+	'section' => $section,
+	'type'    => 'url',
 );
 ~~~
 
@@ -310,6 +323,7 @@ Development
 * Enhancement: Add text input option
 * Enhancement: Sort system fonts and webfonts within dropdown
 * Enhancement: Add Panels Support, from WP 4.0
+* Enhancement: Add support for "url" type
 * Update: Change how setting parameters are added
 
 1.2.0
