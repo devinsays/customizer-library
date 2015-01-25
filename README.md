@@ -34,6 +34,7 @@ The Customizer Library currently supports these options:
 * Color
 * Text
 * URL
+* Range
 * Textarea
 * Select (Typography)
 
@@ -212,6 +213,23 @@ $options['example-font'] = array(
 );
 ~~~
 
+### Range
+
+~~~php
+$options['example-range'] = array(
+	'id' => 'example-range',
+	'label'   => __( 'Example Range Input', 'demo' ),
+	'section' => $section,
+	'type'    => 'range',
+	'input_attrs' => array(
+        'min'   => 0,
+        'max'   => 10,
+        'step'  => 1,
+        'style' => 'color: #0a0',
+	)
+);
+~~~
+
 ### Pass $options to Customizer Library
 
 After all the options and sections are defined, load them with the Customizer Library:
@@ -324,6 +342,7 @@ Development
 * Enhancement: Sort system fonts and webfonts within dropdown
 * Enhancement: Add Panels Support, from WP 4.0
 * Enhancement: Add support for "url" type
+* Enhancement: Add support for "range" type
 * Update: Change how setting parameters are added
 
 1.2.0

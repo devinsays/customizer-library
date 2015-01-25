@@ -100,13 +100,34 @@ if ( ! function_exists( 'sanitize_hex_color' ) ) :
  * @return string|null
  */
 function sanitize_hex_color( $color ) {
-	if ( '' === $color )
+	if ( '' === $color ) {
 		return '';
+	}
 
 	// 3 or 6 hex digits, or the empty string.
-	if ( preg_match('|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) )
+	if ( preg_match('|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) ) {
 		return $color;
+	}
 
 	return null;
+}
+endif;
+
+if ( ! function_exists( 'customizer_library_sanitize_range' ) ) :
+/**
+ * Sanitizes a range value
+ *
+ * @since 1.3.0
+ *
+ * @param string $color
+ * @return string|null
+ */
+function customizer_library_sanitize_range( $value ) {
+
+	if ( is_numeric( $value ) ) {
+		return $value;
+	}
+
+	return 0;
 }
 endif;

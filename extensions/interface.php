@@ -77,6 +77,7 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 					case 'select':
 					case 'radio':
 					case 'checkbox':
+					case 'range':
 
 						$wp_customize->add_control(
 							$option['id'], $option
@@ -279,6 +280,10 @@ function customizer_library_get_sanitization( $type ) {
 
 	if ( 'url' == $type ) {
 		return 'esc_url';
+	}
+
+	if ( 'range' == $type ) {
+		return 'customizer_library_sanitize_range';
 	}
 
 	// If a custom option is being used, return false
