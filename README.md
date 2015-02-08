@@ -144,6 +144,17 @@ $options['example-select'] = array(
 );
 ~~~
 
+### Drop Down Pages
+
+$options['example-dropdown-pages'] = array(
+	'id' => 'example-dropdown-pages',
+	'label'   => __( 'Example Drop Down Pages', 'textdomain' ),
+	'section' => $section,
+	'type'    => 'dropdown-pages',
+	'default' => ''
+);
+~~~
+
 ### Radio
 
 ~~~php
@@ -335,7 +346,7 @@ if ( $mod != customizer_library_get_default( $setting ) ) {
 
 ## Change Log
 
-Development
+1.3.0
 ===
 
 * Enhancement: Add text input option
@@ -343,6 +354,7 @@ Development
 * Enhancement: Add Panels Support, from WP 4.0
 * Enhancement: Add support for "url" type
 * Enhancement: Add support for "range" type
+* Enhancement: Add support for "dropdown-pages" type
 * Update: Change how setting parameters are added
 
 1.2.0
