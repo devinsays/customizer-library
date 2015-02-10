@@ -80,7 +80,7 @@ function customizer_library_sanitize_file_url( $url ) {
 
 	$filetype = wp_check_filetype( $url );
 	if ( $filetype["ext"] ) {
-		$output = esc_url( $url );
+		$output = esc_url_raw( $url );
 	}
 
 	return $output;
