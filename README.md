@@ -146,6 +146,7 @@ $options['example-select'] = array(
 
 ### Drop Down Pages
 
+~~~php
 $options['example-dropdown-pages'] = array(
 	'id' => 'example-dropdown-pages',
 	'label'   => __( 'Example Drop Down Pages', 'textdomain' ),
