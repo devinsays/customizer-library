@@ -35,6 +35,7 @@ The Customizer Library currently supports these options:
 * Text
 * URL
 * Range
+* Arbitrary Text
 * Textarea
 * Select (Typography)
 
@@ -252,6 +253,20 @@ $options['sections'] = $sections;
 
 $customizer_library = Customizer_Library::Instance();
 $customizer_library->add_options( $options );
+~~~
+
+### Arbitary Text
+
+Adding arbitary text can be helpful for including additional instructions or notation for a control, panel, or section.
+
+~~~php
+$options['example-arbitrary-text'] = array(
+    'id' 			=> 'example-arbitrary-text',
+    'section'     	=> $section,
+    'label'         => __( 'Text Label', 'demo' ),
+    'type'          => 'helptext',
+    'description'	=> __( 'Example of more decription text', 'demo' )
+);
 ~~~
 
 ### Demo

@@ -155,6 +155,23 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 
 						break;
 
+					case 'helptext':
+
+						$wp_customize->add_control(
+							new Customizer_Library_Help_Text(
+								$wp_customize,
+								$option['id'], array(
+									'label'             => $option['label'],
+									'section'           => $option['section'],
+									'priority'          => $option['priority'],
+									'description'       => $option['description'],
+									'sanitize_callback' => $option['sanitize_callback']
+								)
+							)
+						);
+
+						break;
+
 				}
 			}
 		}
@@ -275,7 +292,7 @@ function customizer_library_get_sanitization( $type ) {
 		return 'customizer_library_sanitize_file_url';
 	}
 
-	if ( 'text' == $type || 'textarea' == $type ) {
+	if ( 'text' == $type || 'textarea' == $type || 'helptext' == $type  ) {
 		return 'customizer_library_sanitize_text';
 	}
 
