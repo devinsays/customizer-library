@@ -37,6 +37,8 @@ if ( ! class_exists( 'Customizer_Library' ) ) : // Helper functions to output th
 	if ( version_compare( $GLOBALS['wp_version'], '4.0', '<' ) ) {
 		require plugin_dir_path( __FILE__ ) . 'custom-controls/textarea.php';
 	}
+	require plugin_dir_path( __FILE__ ) . 'custom-controls/help-text.php';
+	require plugin_dir_path( __FILE__ ) . 'custom-controls/radio-image.php';
 
 	/**
 	 * Class wrapper with useful methods for interacting with the theme customizer.

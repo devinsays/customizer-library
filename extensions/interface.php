@@ -155,6 +155,41 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 
 						break;
 
+					case 'helptext':
+
+						$wp_customize->add_control(
+							new Customizer_Library_Help_Text(
+								$wp_customize,
+								$option['id'], array(
+									'label'             => $option['label'],
+									'section'           => $option['section'],
+									'priority'          => $option['priority'],
+									'description'       => $option['description'],
+									'sanitize_callback' => $option['sanitize_callback']
+								)
+							)
+						);
+
+						break;
+
+					case 'radio-image':
+
+						$wp_customize->add_control(
+							new Customizer_Library_Control_Radio_Image(
+								$wp_customize,
+								$option['id'], array(
+									'label'             => $option['label'],
+									'section'           => $option['section'],
+									'priority'          => $option['priority'],
+									'description'       => $option['description'],
+									'sanitize_callback' => $option['sanitize_callback'],
+									'choices'           => $option['choices']
+								)
+							)
+						);
+
+						break;
+
 				}
 			}
 		}
@@ -228,7 +263,8 @@ function customizer_library_add_setting( $option, $wp_customize ) {
 		'theme_supports'       => NULL,
 		'transport'            => NULL,
 		'sanitize_callback'    => 'wp_kses_post',
-		'sanitize_js_callback' => NULL
+		'sanitize_js_callback' => NULL,
+		'choices'			   => NULL
 	);
 
 	// Settings defaults
@@ -242,7 +278,8 @@ function customizer_library_add_setting( $option, $wp_customize ) {
 			'theme_supports'       => $settings['theme_supports'],
 			'transport'            => $settings['transport'],
 			'sanitize_callback'    => $settings['sanitize_callback'],
-			'sanitize_js_callback' => $settings['sanitize_js_callback']
+			'sanitize_js_callback' => $settings['sanitize_js_callback'],
+			'choices' 			   => $settings['choices']
 		)
 	);
 
@@ -259,7 +296,7 @@ function customizer_library_add_setting( $option, $wp_customize ) {
  */
 function customizer_library_get_sanitization( $type ) {
 
-	if ( 'select' == $type || 'radio' == $type ) {
+	if ( 'select' == $type || 'radio' == $type || 'radio-image' == $type ) {
 		return 'customizer_library_sanitize_choices';
 	}
 
@@ -275,7 +312,7 @@ function customizer_library_get_sanitization( $type ) {
 		return 'customizer_library_sanitize_file_url';
 	}
 
-	if ( 'text' == $type || 'textarea' == $type ) {
+	if ( 'text' == $type || 'textarea' == $type || 'helptext' == $type  ) {
 		return 'customizer_library_sanitize_text';
 	}
 

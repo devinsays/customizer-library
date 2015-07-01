@@ -29,12 +29,14 @@ The Customizer Library currently supports these options:
 * Checkbox
 * Select
 * Radio
+* Radio Images
 * Upload
 * Image
 * Color
 * Text
 * URL
 * Range
+* Arbitrary Text
 * Textarea
 * Select (Typography)
 
@@ -146,6 +148,7 @@ $options['example-select'] = array(
 
 ### Drop Down Pages
 
+~~~php
 $options['example-dropdown-pages'] = array(
 	'id' => 'example-dropdown-pages',
 	'label'   => __( 'Example Drop Down Pages', 'textdomain' ),
@@ -171,6 +174,35 @@ $options['example-radio'] = array(
 	'type'    => 'radio',
 	'choices' => $choices,
 	'default' => 'choice-1'
+);
+~~~
+
+### Radio Images
+
+The radio images will need to be placed in the theme's images folder or adjut the image path accordingly.
+
+~~~php
+
+$imagepath =  get_template_directory_uri() . '/img/';
+
+$image_choices = array(
+	'choice-1'  => array( 
+		'url' => $imagepath .'example-1.png', 
+		'label' => 'Left'
+	),
+	'choice-2' => array( 
+		'url' => $imagepath .'example-2.png', 
+		'label' => 'Right'
+	),
+);
+
+$options['example-radio-images'] = array(
+    'id' 			=> 'example-radio-images',
+    'label'   		=> __( 'Example Radio Images', 'demo' ),
+    'section' 		=> $section,
+    'type'    		=> 'radio-image',
+    'choices' 		=> $image_choices,
+    'default' 		=> 'choice-2'
 );
 ~~~
 
@@ -238,6 +270,20 @@ $options['example-range'] = array(
         'step'  => 1,
         'style' => 'color: #0a0',
 	)
+);
+~~~
+
+### Arbitary Text
+
+Adding arbitary text can be helpful for including additional instructions or notation for a control, panel, or section.
+
+~~~php
+$options['example-arbitrary-text'] = array(
+    'id' 			=> 'example-arbitrary-text',
+    'section'     	=> $section,
+    'label'         => __( 'Text Label', 'demo' ),
+    'type'          => 'helptext',
+    'description'	=> __( 'Example of more decription text', 'demo' )
 );
 ~~~
 
