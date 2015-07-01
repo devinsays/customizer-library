@@ -29,6 +29,7 @@ The Customizer Library currently supports these options:
 * Checkbox
 * Select
 * Radio
+* Radio Images
 * Upload
 * Image
 * Color
@@ -173,6 +174,35 @@ $options['example-radio'] = array(
 	'type'    => 'radio',
 	'choices' => $choices,
 	'default' => 'choice-1'
+);
+~~~
+
+### Radio Images
+
+The radio images will need to be placed in the theme's images folder or adjut the image path accordingly.
+
+~~~php
+
+$imagepath =  get_template_directory_uri() . '/img/';
+
+$image_choices = array(
+	'choice-1'  => array( 
+		'url' => $imagepath .'example-1.png', 
+		'label' => 'Left'
+	),
+	'choice-2' => array( 
+		'url' => $imagepath .'example-2.png', 
+		'label' => 'Right'
+	),
+);
+
+$options['example-radio-images'] = array(
+    'id' 			=> 'example-radio-images',
+    'label'   		=> __( 'Example Radio Images', 'demo' ),
+    'section' 		=> $section,
+    'type'    		=> 'radio-image',
+    'choices' 		=> $image_choices,
+    'default' 		=> 'choice-2'
 );
 ~~~
 

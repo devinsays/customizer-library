@@ -38,6 +38,7 @@ if ( ! class_exists( 'Customizer_Library' ) ) : // Helper functions to output th
 		require plugin_dir_path( __FILE__ ) . 'custom-controls/textarea.php';
 	}
 	require plugin_dir_path( __FILE__ ) . 'custom-controls/help-text.php';
+	require plugin_dir_path( __FILE__ ) . 'custom-controls/radio-image.php';
 
 	/**
 	 * Class wrapper with useful methods for interacting with the theme customizer.
