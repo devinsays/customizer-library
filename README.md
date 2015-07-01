@@ -243,18 +243,6 @@ $options['example-range'] = array(
 );
 ~~~
 
-### Pass $options to Customizer Library
-
-After all the options and sections are defined, load them with the Customizer Library:
-
-~~~php
-// Adds the sections to the $options array
-$options['sections'] = $sections;
-
-$customizer_library = Customizer_Library::Instance();
-$customizer_library->add_options( $options );
-~~~
-
 ### Arbitary Text
 
 Adding arbitary text can be helpful for including additional instructions or notation for a control, panel, or section.
@@ -267,6 +255,18 @@ $options['example-arbitrary-text'] = array(
     'type'          => 'helptext',
     'description'	=> __( 'Example of more decription text', 'demo' )
 );
+~~~
+
+### Pass $options to Customizer Library
+
+After all the options and sections are defined, load them with the Customizer Library:
+
+~~~php
+// Adds the sections to the $options array
+$options['sections'] = $sections;
+
+$customizer_library = Customizer_Library::Instance();
+$customizer_library->add_options( $options );
 ~~~
 
 ### Demo
