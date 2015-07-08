@@ -241,6 +241,22 @@ $options['example-range'] = array(
 );
 ~~~
 
+### Content
+
+~~~php
+$options['example-content'] = array(
+	'id' => 'example-content',
+	'label' => __( 'Example Content', 'textdomain' ),
+	'section' => $section,
+	'type' => 'content',
+	'input_attrs' => array(
+		'content' => __( '<p>Content to output. Use <a href="#">HTML</a> if you like.</p>', 'textdomain' ),
+		'divider' => true
+	),
+	'description' => __( 'Optional: Example Description.', 'textdomain' )
+);
+~~~
+
 ### Pass $options to Customizer Library
 
 After all the options and sections are defined, load them with the Customizer Library:
@@ -345,6 +361,11 @@ if ( $mod != customizer_library_get_default( $setting ) ) {
 ~~~
 
 ## Change Log
+
+Development
+===
+
+* Enhancement: Content option (for help text, HTML output, etc.)
 
 1.3.0
 ===

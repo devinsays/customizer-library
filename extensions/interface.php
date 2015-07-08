@@ -155,6 +155,19 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 
 						break;
 
+					case 'content':
+					case 'line':
+
+						// error_log( print_r( $option ) );
+
+						$wp_customize->add_control(
+							new Customizer_Library_Content(
+								$wp_customize, $option['id'], $option
+							)
+						);
+
+						break;
+
 				}
 			}
 		}
