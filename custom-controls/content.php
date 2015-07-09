@@ -12,6 +12,9 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) {
 
 class Customizer_Library_Content extends WP_Customize_Control {
 
+	// Whitelist content parameter
+	public $content = '';
+
 	/**
 	 * Render the control's content.
 	 *
@@ -30,22 +33,14 @@ class Customizer_Library_Content extends WP_Customize_Control {
 					echo '<span class="customize-control-title">' . $this->label . '</span>';
 				}
 
-				if ( isset( $this->input_attrs['content'] ) ) {
-					echo $this->input_attrs['content'];
+				if ( isset( $this->content ) ) {
+					echo $this->content;
 				}
 
 				if ( isset( $this->description ) ) {
 					echo '<span class="description customize-control-description">' . $this->description . '</span>';
 				}
 
-				if ( isset( $this->input_attrs['divider'] ) ) {
-					echo '<hr>';
-				}
-
-				break;
-
-			case 'divider' :
-				echo '<hr>';
 				break;
 
 		}

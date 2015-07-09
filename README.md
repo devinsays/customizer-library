@@ -249,10 +249,7 @@ $options['example-content'] = array(
 	'label' => __( 'Example Content', 'textdomain' ),
 	'section' => $section,
 	'type' => 'content',
-	'input_attrs' => array(
-		'content' => __( '<p>Content to output. Use <a href="#">HTML</a> if you like.</p>', 'textdomain' ),
-		'divider' => true
-	),
+	'content' => '<p>' . __( 'Content to output. Use <a href="#">HTML</a> if you like.', 'textdomain' ) . '</p>',
 	'description' => __( 'Optional: Example Description.', 'textdomain' )
 );
 ~~~
