@@ -61,6 +61,31 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 					$option['active_callback'] = '';
 				}
 
+				// Set default mime_type to image.
+				if ( ! isset( $option['mime_type'] ) ) {
+					$option['mime_type'] = 'image';
+				}
+
+				// Set default flex_width to true.
+				if ( ! isset( $option['flex_width'] ) ) {
+					$option['flex_width'] = true;
+				}
+
+				// Set default flex_height to true.
+				if ( ! isset( $option['flex_height'] ) ) {
+					$option['flex_height'] = true;
+				}
+
+				// Set blank width if one isn't set
+				if ( ! isset( $option['width'] ) ) {
+					$option['width'] = '';
+				}
+
+				// Set blank height if one isn't set
+				if ( ! isset( $option['height'] ) ) {
+					$option['height'] = '';
+				}
+
 				// Add the setting
 				customizer_library_add_setting( $option, $wp_customize );
 
@@ -126,6 +151,47 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 									'priority'          => $option['priority'],
 									'active_callback'   => $option['active_callback'],
 									'description'      => $option['description']
+								)
+							)
+						);
+
+						break;
+
+					case 'media':
+
+						$wp_customize->add_control(
+							new WP_Customize_Media_Control(
+								$wp_customize,
+								$option['id'], array(
+									'label'             => $option['label'],
+									'section'           => $option['section'],
+									'sanitize_callback' => $option['sanitize_callback'],
+									'priority'          => $option['priority'],
+									'active_callback'   => $option['active_callback'],
+									'description'       => $option['description'],
+									'mime_type'         => $option['mime_type']
+								)
+							)
+						);
+
+						break;
+
+					case 'crop':
+
+						$wp_customize->add_control(
+							new WP_Customize_Cropped_Image_Control(
+								$wp_customize,
+								$option['id'], array(
+									'label'             => $option['label'],
+									'section'           => $option['section'],
+									'sanitize_callback' => $option['sanitize_callback'],
+									'priority'          => $option['priority'],
+									'active_callback'   => $option['active_callback'],
+									'description'       => $option['description'],
+									'flex_width'        => $option['flex_width'],
+									'flex_height'       => $option['flex_height'],
+									'width'             => $option['width'],
+									'height'            => $option['height'],
 								)
 							)
 						);
@@ -300,7 +366,7 @@ function customizer_library_get_sanitization( $type ) {
 		return 'customizer_library_sanitize_range';
 	}
 
-	if ( 'dropdown-pages' == $type ) {
+	if ( 'dropdown-pages' == $type || 'media' == $type || 'crop' == $type ) {
 		return 'absint';
 	}
 
