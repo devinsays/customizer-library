@@ -254,6 +254,35 @@ $options['example-content'] = array(
 );
 ~~~
 
+### Media
+
+~~~php
+$options['example-media'] = array(
+	'id'        => 'example-media',
+	'label'     => __( 'Image Media', 'textdomain' ),
+	'section'   => $section,
+	'type'      => 'media',
+	'default'   => '',
+	'mime_type' => 'image'
+);
+~~~
+
+### Crop
+
+~~~php
+$options['example-crop'] = array(
+	'id'          => 'example-crop',
+	'label'       => __( 'Custom Header', 'textdomain' ),
+	'section'     => $section,
+	'type'        => 'crop',
+	'default'     => '',
+	'flex_width'  => true,
+	'flex_height' => true,
+	'width'       => 200,
+	'height'      => 200
+);
+~~~
+
 ### Pass $options to Customizer Library
 
 After all the options and sections are defined, load them with the Customizer Library:
@@ -363,6 +392,8 @@ Development
 ===
 
 * Enhancement: Content option (for help text, HTML output, etc.)
+* Bugfix: Encode `|` character to fix html5 validation error
+* Introduce 2 new Customizer media controls `WP_Customize_Media_Control` and `WP_Customize_Cropped_Image_Control`
 
 1.3.0
 ===
