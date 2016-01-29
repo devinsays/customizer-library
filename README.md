@@ -4,9 +4,9 @@ A helpful library for working with the WordPress customizer.
 
 ## About
 
-The customizer allows WordPress developers to add options for themes and plugins, but it should be easier to work with.  This library abstracts out some of the complexity.
+The Customizer allows WordPress developers to add options for themes and plugins, but it should be easier to work with.  This library abstracts out some of the complexity.
 
-Instead of adding options to the $wp_customize object directly, developers can just define an array of controls and sections and pass it to the Customizer_Library class.
+Instead of adding options to the `$wp_customize` object directly, developers can just define an array of controls and sections and pass it to the Customizer_Library class.
 
 To see how this works in practice, please see the [Customizer Library Demo](https://github.com/devinsays/customizer-library-demo) theme.
 
@@ -40,7 +40,7 @@ The Customizer Library currently supports these options:
 
 ### Sections
 
-Sections are convenient ways to group controls in the customizer.
+Sections are convenient ways to group controls in the Customizer.
 
 Customizer Sections can be defined like this:
 
@@ -146,6 +146,7 @@ $options['example-select'] = array(
 
 ### Drop Down Pages
 
+~~~php
 $options['example-dropdown-pages'] = array(
 	'id' => 'example-dropdown-pages',
 	'label'   => __( 'Example Drop Down Pages', 'textdomain' ),
@@ -254,7 +255,7 @@ $options['example-content'] = array(
 );
 ~~~
 
-### Pass $options to Customizer Library
+### Pass `$options` to Customizer Library
 
 After all the options and sections are defined, load them with the Customizer Library:
 
@@ -266,16 +267,16 @@ $customizer_library = Customizer_Library::Instance();
 $customizer_library->add_options( $options );
 ~~~
 
-### Demo
+## Demo
 
-A full working example can be found here:
+A full working example can be found here:  
 https://github.com/devinsays/customizer-library-demo/blob/master/inc/customizer-options.php
 
 ## Styles
 
-The Customizer Library has a helper class to output inline styles.  This code was originally developed by [The Theme Foundry](https://thethemefoundry.com/) for use in [Make](https://thethemefoundry.com/wordpress-themes/make/).  To see how it works, see "inc/styles.php".
+The Customizer Library has a helper class to output inline styles.  This code was originally developed by [The Theme Foundry](https://thethemefoundry.com/) for use in [Make](https://thethemefoundry.com/wordpress-themes/make/).  To see how it works, see `inc/styles.php`.
 
-CSS selector(s) and value are passed to Customizer_Library_Styles class like this:
+CSS selector(s) and value are passed to `Customizer_Library_Styles` class like this:
 
 ~~~php
 Customizer_Library_Styles()->add( array(
@@ -290,7 +291,7 @@ Customizer_Library_Styles()->add( array(
 
 #### Media Queries
 
-Media queries can also be be used with Customizer_Library_Styles.  Here's an example for outputting logo-image-2x on high resolution devices.
+Media queries can also be be used with `Customizer_Library_Styles`.  Here's an example for outputting `logo-image-2x` on high resolution devices.
 
 ~~~php
 $setting = 'logo-image-2x';
@@ -315,7 +316,7 @@ if ( $mod ) {
 
 ## Fonts
 
-The Customizer Library has a helper functions to output font stacks and load inline fonts.  This code was also developed by [The Theme Foundry](https://thethemefoundry.com/) for use in [Make](https://thethemefoundry.com/wordpress-themes/make/).  You can see an example of font enqueing in "inc/mods.php":
+The Customizer Library has a helper functions to output font stacks and load inline fonts.  This code was also developed by [The Theme Foundry](https://thethemefoundry.com/) for use in [Make](https://thethemefoundry.com/wordpress-themes/make/).  You can see an example of font enqueing in `inc/mods.php`:
 
 ~~~php
 function demo_fonts() {
@@ -359,13 +360,11 @@ if ( $mod != customizer_library_get_default( $setting ) ) {
 
 ## Change Log
 
-Development
-===
+### Development
 
 * Enhancement: Content option (for help text, HTML output, etc.)
 
-1.3.0
-===
+### 1.3.0
 
 * Enhancement: Add text input option
 * Enhancement: Sort system fonts and webfonts within dropdown
@@ -375,19 +374,16 @@ Development
 * Enhancement: Add support for "dropdown-pages" type
 * Update: Change how setting parameters are added
 
-1.2.0
-===
+### 1.2.0
 
 * Enhancement: Allow setting parameters
 * Update: Refactor interface loop
 
-1.1.0
-===
+### 1.1.0
 
-* Bugfix: customizer.js enqueue relative to library
+* Bugfix: `customizer.js` enqueue relative to library
 * Enhancement: Use new textarea control from core
 
-1.0.0
-===
+### 1.0.0
 
 * Public Release
