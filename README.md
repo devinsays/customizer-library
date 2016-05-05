@@ -16,12 +16,6 @@ At the moment there is only one custom control (for textarea), but look for addi
 
 The Customizer Library includes additional classes and helper functions for creating inline styles and loading Google fonts.  These functions and classes were developed by [The Theme Foundry](https://thethemefoundry.com/) for their theme [Make](https://thethemefoundry.com/wordpress-themes/make/) and I've found them quite useful in my own projects.  However, I'm considering moving them into seperate modules in order to make the core library as focused as possible.  Feedback on this is welcome.
 
-## Installation
-
-The [Customizer Library](https://github.com/devinsays/customizer-library) can be included in your own projects git submodule if you'd like to be able to pull down changes.  To include it in your own projects the same way, navigate to the directory and use:
-
-`git submodule add git@github.com:devinsays/customizer-library customizer-library`
-
 ## Options
 
 The Customizer Library currently supports these options:
