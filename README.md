@@ -34,7 +34,6 @@ The Customizer Library currently supports these options:
 * Color
 * Text
 * URL
-* Range
 * Textarea
 * Select (Typography)
 
@@ -356,38 +355,3 @@ if ( $mod != customizer_library_get_default( $setting ) ) {
 
 }
 ~~~
-
-## Change Log
-
-Development
-===
-
-* Enhancement: Content option (for help text, HTML output, etc.)
-
-1.3.0
-===
-
-* Enhancement: Add text input option
-* Enhancement: Sort system fonts and webfonts within dropdown
-* Enhancement: Add Panels Support, from WP 4.0
-* Enhancement: Add support for "url" type
-* Enhancement: Add support for "range" type
-* Enhancement: Add support for "dropdown-pages" type
-* Update: Change how setting parameters are added
-
-1.2.0
-===
-
-* Enhancement: Allow setting parameters
-* Update: Refactor interface loop
-
-1.1.0
-===
-
-* Bugfix: customizer.js enqueue relative to library
-* Enhancement: Use new textarea control from core
-
-1.0.0
-===
-
-* Public Release
