@@ -16,12 +16,6 @@ At the moment there is only one custom control (for textarea), but look for addi
 
 The Customizer Library includes additional classes and helper functions for creating inline styles and loading Google fonts.  These functions and classes were developed by [The Theme Foundry](https://thethemefoundry.com/) for their theme [Make](https://thethemefoundry.com/wordpress-themes/make/) and I've found them quite useful in my own projects.  However, I'm considering moving them into seperate modules in order to make the core library as focused as possible.  Feedback on this is welcome.
 
-## Installation
-
-The [Customizer Library](https://github.com/devinsays/customizer-library) can be included in your own projects git submodule if you'd like to be able to pull down changes.  To include it in your own projects the same way, navigate to the directory and use:
-
-`git submodule add git@github.com:devinsays/customizer-library customizer-library`
-
 ## Options
 
 The Customizer Library currently supports these options:
@@ -34,7 +28,6 @@ The Customizer Library currently supports these options:
 * Color
 * Text
 * URL
-* Range
 * Textarea
 * Select (Typography)
 
@@ -356,38 +349,3 @@ if ( $mod != customizer_library_get_default( $setting ) ) {
 
 }
 ~~~
-
-## Change Log
-
-Development
-===
-
-* Enhancement: Content option (for help text, HTML output, etc.)
-
-1.3.0
-===
-
-* Enhancement: Add text input option
-* Enhancement: Sort system fonts and webfonts within dropdown
-* Enhancement: Add Panels Support, from WP 4.0
-* Enhancement: Add support for "url" type
-* Enhancement: Add support for "range" type
-* Enhancement: Add support for "dropdown-pages" type
-* Update: Change how setting parameters are added
-
-1.2.0
-===
-
-* Enhancement: Allow setting parameters
-* Update: Refactor interface loop
-
-1.1.0
-===
-
-* Bugfix: customizer.js enqueue relative to library
-* Enhancement: Use new textarea control from core
-
-1.0.0
-===
-
-* Public Release
