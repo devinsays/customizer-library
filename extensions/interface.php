@@ -178,6 +178,14 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 						break;
 
 				}
+
+				if (!empty($option['selector'])) {
+					$wp_customize->selective_refresh->add_partial( $option['id'], array(
+						'selector' =>  $option['selector'],
+						'container_inclusive' => isset($option['container_inclusive'])?$option['container_inclusive']:true,
+					) );
+
+				}
 			}
 		}
 	}
