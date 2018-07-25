@@ -39,6 +39,9 @@ if ( ! class_exists( 'Customizer_Library' ) ) :
 		require plugin_dir_path( __FILE__ ) . 'custom-controls/textarea.php';
 	}
 
+	// Richedit control
+	require plugin_dir_path( __FILE__ ) . 'custom-controls/richedit.php';
+
 	// Arbitrary content controls
 	require plugin_dir_path( __FILE__ ) . 'custom-controls/content.php';
 

@@ -167,6 +167,15 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 						);
 
 						break;
+					case 'richedit':
+
+						$wp_customize->add_control(
+							new WP_Customize_Richedit_Control(
+								$wp_customize, $option['id'], $option
+							)
+						);
+
+						break;
 
 				}
 			}
