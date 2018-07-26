@@ -87,6 +87,7 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 					case 'checkbox':
 					case 'range':
 					case 'dropdown-pages':
+					case 'image_gallery':
 
 						$wp_customize->add_control(
 							$option['id'], $option
