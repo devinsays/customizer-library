@@ -40,7 +40,15 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 		$loop = 0;
 
 		// Loops through each of the options
-		foreach ( $options as $option ) {
+		foreach ( $options as  $id => $option ) {
+
+			if (!isset($option['id'])) {
+				$option['id'] = $id;
+			}
+
+			if (!isset($option['type'])) {
+				$option['type'] = 'text';
+			}
 
 			// Set blank description if one isn't set
 			if ( ! isset( $option['description'] ) ) {
