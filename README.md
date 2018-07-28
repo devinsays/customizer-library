@@ -37,6 +37,7 @@ The Customizer Library currently supports these options:
 * Range
 * Textarea
 * Select (Typography)
+* Richedit (TinyMCE)
 
 ### Sections
 
@@ -251,6 +252,17 @@ $options['example-content'] = array(
 	'type' => 'content',
 	'content' => '<p>' . __( 'Content to output. Use <a href="#">HTML</a> if you like.', 'textdomain' ) . '</p>',
 	'description' => __( 'Optional: Example Description.', 'textdomain' )
+);
+~~~
+
+### Richedit
+
+~~~php
+$options['example-richedit'] = array(
+	'id' => 'example-richedit',
+	'label' => __( 'Example richedit', 'textdomain' ),
+	'section' => $section,
+	'type' => 'richedit'
 );
 ~~~
 

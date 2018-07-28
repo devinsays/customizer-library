@@ -40,7 +40,15 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 		$loop = 0;
 
 		// Loops through each of the options
-		foreach ( $options as $option ) {
+		foreach ( $options as  $id => $option ) {
+
+			if (!isset($option['id'])) {
+				$option['id'] = $id;
+			}
+
+			if (!isset($option['type'])) {
+				$option['type'] = 'text';
+			}
 
 			// Set blank description if one isn't set
 			if ( ! isset( $option['description'] ) ) {
@@ -79,6 +87,7 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 					case 'checkbox':
 					case 'range':
 					case 'dropdown-pages':
+					case 'image_gallery':
 
 						$wp_customize->add_control(
 							$option['id'], $option
@@ -167,6 +176,23 @@ if ( ! function_exists( 'customizer_library_register' ) ) : /**
 						);
 
 						break;
+					case 'richedit':
+
+						$wp_customize->add_control(
+							new WP_Customize_Richedit_Control(
+								$wp_customize, $option['id'], $option
+							)
+						);
+
+						break;
+
+				}
+
+				if (!empty($option['selector'])) {
+					$wp_customize->selective_refresh->add_partial( $option['id'], array(
+						'selector' =>  $option['selector'],
+						'container_inclusive' => isset($option['container_inclusive'])?$option['container_inclusive']:true,
+					) );
 
 				}
 			}
